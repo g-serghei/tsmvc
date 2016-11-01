@@ -1,0 +1,27 @@
+{
+  "name": "typescript-mvc",
+  "version": "1.0.0",
+  "description": "MVC Framework on TypeScript",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^2.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "server": "node dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phoenix3008/tsmvc.git"
+  },
+  "keywords": [
+    "mvc",
+    "typescript"
+  ],
+  "author": "Serghei Grigoruta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phoenix3008/tsmvc/issues"
+  },
+  "homepage": "https://github.com/phoenix3008/tsmvc#readme"
+}
