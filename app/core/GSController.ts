@@ -1,17 +1,17 @@
-export class BaseController {
+import {GS} from './GS';
 
-    private response: any = null;
+export class GSController {
 
-    constructor(response: any) {
-        this.response = response;
+    constructor() {
+
     }
 
     write(content: string): void {
-        this.response.write(content);
+        GS.app().getResponse().write(content);
     }
 
     end(content: string): void {
-        this.response.end(content);
+        GS.app().getResponse().end(content);
     }
 
     render(view: string, params: Object, ret: boolean = false): void {
