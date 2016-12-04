@@ -3,6 +3,8 @@ import {GSTemplate} from './GSTemplate';
 
 export class GSController {
 
+    public layout: string = 'main';
+
     constructor() {
 
     }
@@ -15,8 +17,16 @@ export class GSController {
         GS.app().getResponse().end(content);
     }
 
-    render(view: string, params: Object, ret: boolean = false): void {
+    render(view: string, params: Object, ret: boolean = false): void|string {
+        let templateParams: Object = {
+            content: this.renderPartial(view, params, true)
+        };
 
+        if (ret) {
+            return this.renderPartial('/layouts/main', templateParams, true);
+        } else {
+            this.renderPartial('/layouts/main', templateParams);
+        }
     }
 
     renderPartial(view: string, params: Object = {}, ret: boolean = false): void|string {

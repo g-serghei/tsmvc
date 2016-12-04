@@ -19,7 +19,14 @@ export class GSTemplate {
 
     getView(): string {
         let stats: any = null;
-        let viewPath: string = path.resolve(Config.basePath, 'views', GS.app().controller, this.viewName + '.html');
+        let viewPath: string;
+
+        if (this.viewName[0] == '/') {
+            viewPath = path.resolve(Config.basePath, 'views', this.viewName.slice(1) + '.html');
+        } else {
+            viewPath = path.resolve(Config.basePath, 'views', GS.app().controller, this.viewName + '.html');
+        }
+
         try {
             stats = fs.lstatSync(viewPath);
         } catch (e) {
