@@ -7,6 +7,8 @@ export class GS {
     private request: any = null;
     private response: any = null;
     private router: GSRouter = null;
+    public controller: string = null;
+    public action: string = null;
 
     public static app(): GS {
         if (GS.instance === null) {
@@ -20,6 +22,8 @@ export class GS {
         this.request = req;
         this.response = res;
         this.router = new GSRouter(this.request.url);
+        this.controller = this.router.controller;
+        this.action = this.router.action;
         this.callAction();
     }
 

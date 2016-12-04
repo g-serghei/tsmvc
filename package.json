@@ -4,7 +4,8 @@
   "description": "MVC Framework on TypeScript",
   "main": "index.js",
   "dependencies": {
-    "typescript": "^2.0.6"
+    "typescript": "^2.0.6",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
