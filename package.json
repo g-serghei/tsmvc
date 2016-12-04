@@ -4,6 +4,7 @@
   "description": "MVC Framework on TypeScript",
   "main": "index.js",
   "dependencies": {
+    "st": "^1.2.0",
     "typescript": "^2.0.6",
     "underscore": "^1.8.3"
   },
