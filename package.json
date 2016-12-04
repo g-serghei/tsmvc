@@ -6,9 +6,12 @@
   "dependencies": {
     "typescript": "^2.0.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
   "scripts": {
-    "server": "node dist/server.js"
+    "server": "node dist/server.js",
+    "nodemon": "./node_modules/nodemon/bin/nodemon.js dist/server.js"
   },
   "repository": {
     "type": "git",
