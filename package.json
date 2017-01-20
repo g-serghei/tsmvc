@@ -12,7 +12,7 @@
     "nodemon": "^1.11.0"
   },
   "scripts": {
-    "server": "node dist/server.js",
+    "server": "ts-node app/server.ts",
     "nodemon": "./node_modules/nodemon/bin/nodemon.js dist/server.js"
   },
   "repository": {

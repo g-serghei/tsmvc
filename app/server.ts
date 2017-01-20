@@ -10,4 +10,6 @@ let server = http.createServer((req, res) => {
     });
 });
 
-server.listen(8080);
+server.listen(Config.serverPort, () => {
+    console.log(`Server started on port: ${Config.serverPort}`);
+});

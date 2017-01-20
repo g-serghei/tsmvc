@@ -1,15 +1,24 @@
 import {GSRouter} from "./GSRouter";
 import * as controllers from '../controllers';
+import {GSDataBase} from "./GSDataBase";
+import {GSCommon} from "./GSCommon";
 
-export class GS {
+export class GS extends GSCommon {
 
     private static instance: GS = null;
     private request: any = null;
     private response: any = null;
     private router: GSRouter = null;
+    private db: GSDataBase = null;
+
     public controller: string = null;
     public action: string = null;
 
+
+    /**
+     * Get application singleton instance
+     * @returns {GS}
+     */
     public static app(): GS {
         if (GS.instance === null) {
             GS.instance = new GS();
@@ -18,6 +27,12 @@ export class GS {
         return GS.instance;
     }
 
+
+    /**
+     * Init the framework with request and response objects
+     * @param req
+     * @param res
+     */
     init(req, res) {
         this.request = req;
         this.response = res;
@@ -27,6 +42,10 @@ export class GS {
         this.callAction();
     }
 
+
+    /**
+     * Get requested controller and action and call it
+     */
     callAction(): void {
         let controllerName = this.router.controller[0].toUpperCase() + this.router.controller.substr(1) + 'Controller';
         let actionName = 'action' + this.router.action[0].toUpperCase() + this.router.action.substr(1);
@@ -39,10 +58,29 @@ export class GS {
         }
     }
 
+
+    /**
+     * Get database object
+     * @returns {GSDataBase}
+     */
+    getDb() {
+        return this.db;
+    }
+
+
+    /**
+     * Get response object
+     * @returns {any}
+     */
     getResponse() {
         return this.response;
     }
 
+
+    /**
+     * Get request object
+     * @returns {any}
+     */
     getRequest() {
         return this.request;
     }
